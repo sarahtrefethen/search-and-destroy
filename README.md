@@ -1,6 +1,6 @@
 # Search && !Destroy
 
-Today's workshop will focus on algorithmic thinking and problem solving.
+Today's workshop will be awesome and focus on algorithmic thinking and problem solving.
 
 For each algorithm, make sure to `cd` into each folder and run `npm install`. We use two libraries for testing: `mocha` and `chai`, which you will become very familiar with during the rest of the course. You can run these tests using `npm t`.
 
