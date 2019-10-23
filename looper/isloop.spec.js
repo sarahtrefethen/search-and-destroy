@@ -1,8 +1,8 @@
 'use strict';
 const {expect} = require('chai');
 const LinkedList = require('./linkedlist');
-const isLoop = require('./isloop');
-
+const {isLoop} = require('./isloop');
+const {findLoop} = require('./isloop')
 const numbers = [1,2,3,4,5,6,7,8,9,10];
 const letters = ['a','b','c','d','e','f','g','h','i'];
 const emojis = ['🥚','🐣','🦅 ', '👾'];
@@ -13,6 +13,7 @@ const test1 = new LinkedList();
 test1.addToHead(0)
 numbers.forEach(val => test1.addToTail(val));
 test1.getNthNode(6).next = test1.getNthNode(3);
+console.log("find loop is:", findLoop(test1))
 
 const test2 = new LinkedList();
 test2.addToHead('z');

@@ -2,21 +2,46 @@
 
 //Complete this algo
 const isLoop = (linkedlist) => {
-
-    let current = linkedlist.getNthNode(0);
-    let checked = new Set();
-    while(current) {
-        if (checked.has(current)) {
+    let currentSingleJump = linkedlist.getNthNode(0);
+    let currentDoubleJump = linkedlist.getNthNode(2); 
+    while(currentSingleJump) {
+        console.log(currentSingleJump.value)
+        console.log(currentDoubleJump.value)
+        if (currentSingleJump === currentDoubleJump) {
+            console.log(currentSingleJump.value);
             return true;
         } else {
-            checked.add(current);
+            currentSingleJump = currentSingleJump.next;
+            if (currentDoubleJump) {
+                currentDoubleJump = currentDoubleJump.next.next;
+            }
         }
-
-        current = current.next;
     }
-
     return false;
 };
+
+const findLoop = (linkedlist) => {
+    let currentSingleJump = linkedlist.getNthNode(0);
+    let currentDoubleJump = linkedlist.getNthNode(2); 
+    let count = 0;
+    while (currentSingleJump) {
+        count++;
+        console.log(currentSingleJump.value)
+        console.log(currentDoubleJump.value)
+        if (currentSingleJump === currentDoubleJump) {
+            console.log("This is where they meet: ", currentSingleJump.value);
+            return count;
+        } else {
+            currentSingleJump = currentSingleJump.next;
+            if (currentDoubleJump) {
+                currentDoubleJump = currentDoubleJump.next.next;
+            }
+        }
+    }
+    return false;
+};
+
+
 
 
 /*
@@ -27,4 +52,4 @@ This function should return the Node value the loop begins at
 Remember to write some test specs too!
 
 */
-module.exports = isLoop
+module.exports = {isLoop, findLoop}
