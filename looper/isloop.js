@@ -3,6 +3,19 @@
 //Complete this algo
 const isLoop = (linkedlist) => {
 
+    let current = linkedlist.getNthNode(0);
+    let checked = new Set();
+    while(current) {
+        if (checked.has(current)) {
+            return true;
+        } else {
+            checked.add(current);
+        }
+
+        current = current.next;
+    }
+
+    return false;
 };
 
 
